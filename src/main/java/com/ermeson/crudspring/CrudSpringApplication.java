@@ -22,24 +22,29 @@ public class CrudSpringApplication {
 
 			Course c = new Course();
 			c.setName("Angular");
-			c.setCategory("front-end");
+			c.setCategory("Front-end");
 
-			Course c2 = new Course();
-			c2.setName("React");
-			c2.setCategory("front-end");
+			// Course c2 = new Course();
+			// c2.setName("React");
+			// c2.setCategory("front-end");
 
-			Course c3 = new Course();
-			c3.setName("Spring");
-			c3.setCategory("back-end");
+			// Course c3 = new Course();
+			// c3.setName("Spring");
+			// c3.setCategory("back-end");
 
-			Course c4 = new Course();
-			c4.setName("Python");
-			c4.setCategory("back-end");
+			// Course c4 = new Course();
+			// c4.setName("Python");
+			// c4.setCategory("back-end");
 
-			courseRepository.save(c);
-			courseRepository.save(c2);
-			courseRepository.save(c3);
-			courseRepository.save(c4);
+			// Course c5 = new Course();
+			// c5.setName("Angular + Spring");
+			// c5.setCategory("full-stack");
+
+			 courseRepository.save(c);
+			// courseRepository.save(c2);
+			// courseRepository.save(c3);
+			// courseRepository.save(c4);
+			// courseRepository.save(c5);
 		};
 	}
 
