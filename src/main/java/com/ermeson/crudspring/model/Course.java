@@ -1,14 +1,18 @@
 package com.ermeson.crudspring.model;
 
+import com.ermeson.crudspring.enums.Category;
+import com.ermeson.crudspring.enums.Status;
+import com.ermeson.crudspring.enums.converters.CategoryConverter;
+import com.ermeson.crudspring.enums.converters.StatusConverter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.Column;
+import jakarta.persistence.Convert;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Pattern;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.annotations.SQLDelete;
 import org.hibernate.annotations.Where;
@@ -30,18 +34,15 @@ public class Course {
     @Column(length = 100, nullable = false)
     private String name;
 
-    @NotBlank
     @NotNull
-    @Length(max = 10)
-    @Pattern(regexp = "Front-end|Back-end|Full-stack")
     @Column(length = 10, nullable = false)
-    private String category;
+    @Convert(converter = CategoryConverter.class)
+    private Category category;
 
     @NotNull
-    @Length(max = 10)
-    @Pattern(regexp = "Ativo|Inativo")
     @Column(length = 10, nullable = false)
-    private String status = "Ativo";
+    @Convert(converter = StatusConverter.class)
+    private Status status = Status.ACTIVE;
 
     public Long getId() {
         return id;
@@ -55,10 +56,10 @@ public class Course {
     public void setName(String name) {
         this.name = name;
     }
-    public String getCategory() {
+    public Category getCategory() {
         return category;
     }
-    public void setCategory(String category) {
+    public void setCategory(Category category) {
         this.category = category;
     }
     
