@@ -2,6 +2,7 @@ package com.ermeson.crudspring;
 
 import com.ermeson.crudspring.enums.Category;
 import com.ermeson.crudspring.model.Course;
+import com.ermeson.crudspring.model.Lesson;
 import com.ermeson.crudspring.repository.CourseRepository;
 
 import org.springframework.boot.CommandLineRunner;
@@ -25,7 +26,13 @@ public class CrudSpringApplication {
 			c.setName("Angular");
 			c.setCategory(Category.FRONTEND);
 
-			 courseRepository.save(c);
+			Lesson l = new Lesson();
+			l.setName("Introdução");
+			l.setYoutubeUrl("wtstfs98");
+			l.setCourse(c);
+			c.getLessons().add(l);
+
+			courseRepository.save(c);
 		};
 	}
 
