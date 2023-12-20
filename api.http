@@ -1,0 +1,19 @@
+GET http://localhost:8080/api/courses
+
+POST http://localhost:8080/api/courses HTTP/1.1
+content-type: application/Json
+
+{
+    "name": "An",
+    "category": "Front-end",
+    "lessons": [
+        {
+            "name": "Introdução",
+            "youtubeUrl": "ymfurjdhru"
+        },
+        {
+            "name": "Criando um Projeto",
+            "youtubeUrl": "jdhruymfur"
+        }
+    ]
+}
