@@ -26,22 +26,18 @@ public class CrudSpringApplication {
 		return args -> {
 			courseRepository.deleteAll();
 
-			for (int i = 0; i < 20; i++) {
+			for (int i = 1; i < 6; i++) {
 				Course c = new Course();
-				c.setName("Angular");
+				c.setName("Angular " + i);
 				c.setCategory(Category.FRONTEND);
 
-				Lesson l = new Lesson();
-				l.setName("Introdução");
-				l.setYoutubeUrl("wtstfs98ea");
-				l.setCourse(c);
-				c.getLessons().add(l);
-
-				Lesson l2 = new Lesson();
-				l2.setName("Angular");
-				l2.setYoutubeUrl("wtsv2wtst8");
-				l2.setCourse(c);
-				c.getLessons().add(l2);
+				for(int j = 0; j < 1; j++) {
+					Lesson l = new Lesson();
+					l.setName("Introdução");
+					l.setYoutubeUrl("GTy47yMdCgs");
+					l.setCourse(c);
+					c.getLessons().add(l);
+				}
 
 				courseRepository.save(c);
 			}
